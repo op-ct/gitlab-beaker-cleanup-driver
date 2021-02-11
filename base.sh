@@ -136,8 +136,8 @@ ci_job_ensure_user_can_access_script()
     # These directories should all be Gitlab Runner-generated
     local sub_dirs
     local tmp_path
-    IFS="/" read -a sub_dirs <<< "${1#"$TMPDIS"/}"
-    tmp_path="$TMPDIS"
+    IFS="/" read -a sub_dirs <<< "${1#"$TMPDIR"/}"
+    tmp_path="$TMPDIR"
     for i in "${sub_dirs[@]}"; do
       tmp_path="$tmp_path/$i"
       chown "$CI_RUNNER_USER" "$tmp_path"
